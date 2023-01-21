@@ -99,9 +99,6 @@ class SoundTestMenu extends MusicBeatState
 			daNO.setFormat("Sonic CD Menu Font Regular", 23, FlxColor.fromRGB(174, 179, 251));
 			daNO.setBorderStyle(SHADOW, FlxColor.fromRGB(106, 110, 159), 4, 1);
 
-
-
-			
 			pcmNO.y -= 70;
 			pcmNO.x += 100;
 
@@ -255,6 +252,22 @@ class SoundTestMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new PlayState());
 				});
 			}
+			else if (first == 20 && second == 21) // for those haters we do a jokey song
+			{
+				woahmanstopspammin = false;
+				PlayStateChangeables.nocheese = false;
+
+				PlayState.SONG = Song.loadFromJson('bilk-hard', 'bilk');
+				PlayState.isStoryMode = false;
+				PlayState.storyDifficulty = 2;
+				PlayState.storyWeek = 1;
+				trace("Your playing bilk.");
+				flashyWashy(true);
+				new FlxTimer().start(2, function(tmr:FlxTimer)
+				{
+					LoadingState.loadAndSwitchState(new PlayState());
+				});
+			}	
 		else if (first == 41 && second == 1) 
 		{
 			woahmanstopspammin = false;
